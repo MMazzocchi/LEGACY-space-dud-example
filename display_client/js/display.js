@@ -27,6 +27,14 @@ $(function() {
     $('#status')[0].innerHTML = "Received event: "+JSON.stringify(data);
   });
 
+  client.onControllerEvent('button', 1, function(data) {
+    console.log("Button #1 pressed: "+data.value);
+  });
+
+  client.onControllerEvent('axis', 1, function(data) {
+    console.log("Axis #1 value: "+data.value);
+  });
+
   client.onPlayerList(function(player_list) {
     setupPlayerList(player_list, client);
   });
