@@ -7,8 +7,8 @@ var app = express();
 var http = require('http').Server(app);
 var gamepad = require('gamepad-server-plugin')(http);
 
-app.use('/css', express.static(__dirname + '/client/css'));
-app.use('/js', express.static(__dirname + '/client/js'));
+app.use('/css', express.static(__dirname + '/controller_client/css'));
+app.use('/js', express.static(__dirname + '/controller_client/js'));
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); 
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); 
