@@ -5,7 +5,7 @@ var PORT = 3000;
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
-var gamepad = require('gamepad-event-tunnel')(http);
+var gamepad = require('space-dud')(http);
 
 app.use('/css', express.static(__dirname + '/controller_client/css'));
 app.use('/js', express.static(__dirname + '/controller_client/js'));
@@ -15,7 +15,7 @@ app.use('/js', express.static(__dirname + '/display_client/js'));
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); 
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); 
-app.use('/js', express.static(__dirname + '/node_modules/gamepad-event-tunnel/client')); 
+app.use('/js', express.static(__dirname + '/node_modules/space-dud/client')); 
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); 
 
 app.get('/controller', function(req, res){
