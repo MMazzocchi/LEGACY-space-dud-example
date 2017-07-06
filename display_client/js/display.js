@@ -1,28 +1,5 @@
 $(function() {
-  function setupPlayerList(player_list, client) {
-
-    var html = "";
-    for(var i = 0; i < player_list.length; i++) {
-      html += '<div><a class="btn btn-default choose-player-btn">'+
-              player_list[i]+
-              '</a></div>';
-    }
-
-    $('#status')[0].innerHTML = "Select your player ID:";
-    $('#content')[0].innerHTML = html;
-
-    $('.choose-player-btn').click(function(e) {
-      e.preventDefault();
-      var player_id = e.target.innerHTML;
-
-      $('#content')[0].innerHTML = "";
-      $('#status')[0].innerHTML = "Waiting for events...";
-
-      client.selectPlayer(player_id);
-    });
-  };
-
-  var client = new DisplayClient();
+  var client = new DisplayConnection();
   client.onAnyChange(function(data) {
     $('#status')[0].innerHTML = "Received event: "+JSON.stringify(data);
   });
@@ -35,7 +12,18 @@ $(function() {
     console.log("Axis #1 value: "+data.value);
   });
 
-  client.onPlayerList(function(player_list) {
-    setupPlayerList(player_list, client);
+  function playerChoiceCallback(valid) {
+    if(valid) {
+      $('#content')[0].innerHTML = "";
+      $('#status')[0].innerHTML = "Waiting for events...";
+    } else {
+      $('#status')[0].innerHTML = "Invalid player ID. Try again.";
+    }
+  }
+
+  $('#submit_player_id').click(function(e) {
+    var player_id = $('#player_id')[0].value;
+
+    client.selectPlayer(player_id, playerChoiceCallback);
   });
 });

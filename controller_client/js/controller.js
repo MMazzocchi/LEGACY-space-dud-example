@@ -4,7 +4,7 @@ $(function() {
     $('#status')[0].innerHTML = "Plug in a controller and press any button.";
   }
 
-  var client = new ControllerClient(callBack);
+  var client = new ControllerConnection(callBack);
 
   function findControllers() {
     client.findControllers();
@@ -13,7 +13,7 @@ $(function() {
   function connectedHandler(e) { 
     client.connectedHandler(e);
 
-    if(this.numberControllersDetected() == 0) {
+    if(client.numberControllersDetected() == 0) {
       $('#status')[0].innerHTML = "Plug in a controller and press any button.";
     } else {
       $('#status')[0].innerHTML = "Controller detected! Ready to play.";

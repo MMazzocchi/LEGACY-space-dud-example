@@ -5,7 +5,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "express": "^4.15.3",
-    "gamepad-server-plugin": "^0.0.2",
+    "gamepad-event-tunnel": "^0.1.0",
     "jquery": "^3.2.1",
     "socket.io": "^2.0.3"
   }

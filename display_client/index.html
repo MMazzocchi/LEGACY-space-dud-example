@@ -10,13 +10,16 @@
     <div class="container-fluid base">
       <h1>Test Display Client</h1>
       <div class="divider"></div>
-      <h2 id="status">Connecting to server...</h2>
-      <div id="content"></div>
+      <h2 id="status">Enter player ID:</h2>
+      <div id="content">
+        <input id="player_id" type="text"/>
+        <input id="submit_player_id" type="button" value="Submit"/>
+      </div>
     </div>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/display.js"></script>
-    <script src="/js/DisplayClient.js"></script>
+    <script src="/js/DisplayConnection.js"></script>
   </body>
 </html>
