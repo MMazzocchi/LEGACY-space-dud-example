@@ -1,5 +1,27 @@
 <!DOCTYPE html>
 <html>
+    <body>
+        <p>Player ID: <span id="player_id">None</span>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/space-dud/ControllerConnection.js"></script>
+        <script>
+
+var client = new ControllerConnection((player_id) => {
+  document.getElementById('player_id').innerHTML = player_id;
+});
+
+setTimeout(() => { client.findControllers(); }, 500);
+window.addEventListener('gamepadconnected', 
+                        (e) => { client.connectedHandler(e); });
+window.addEventListener('gamepaddisconnected',
+                        (e) => { client.disconnectedHandler(e); });
+
+        </script>
+    </body>
+</html>
+<!--
+<!DOCTYPE html>
+<html>
   <head>
     <title>Gamepad</title>
     <meta charset="utf-8"/>
@@ -20,3 +42,4 @@
     <script src="/js/controller.js"></script>
   </body>
 </html>
+-->

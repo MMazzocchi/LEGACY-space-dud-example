@@ -1,31 +1,17 @@
+const HOST = '0.0.0.0';
+const PORT = 3000;
 
-var HOST = '0.0.0.0';
-var PORT = 3000;
-
+// Set up the express app and space-dud.
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
-var gamepad = require('space-dud')(http);
+var space_dud = require('space-dud')(http);
 
-app.use('/css', express.static(__dirname + '/controller_client/css'));
-app.use('/js', express.static(__dirname + '/controller_client/js'));
+// Serve the static client files.
+app.use('/controller.html', express.static(__dirname+'/controller.html'));
+app.use('/display.html', express.static(__dirname+'/display.html'));
 
-app.use('/css', express.static(__dirname + '/display_client/css'));
-app.use('/js', express.static(__dirname + '/display_client/js'));
-
-app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); 
-app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); 
-app.use('/js', express.static(__dirname + '/node_modules/space-dud/client')); 
-app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); 
-
-app.get('/controller', function(req, res){
-  res.sendFile(__dirname + '/controller_client/index.html');
-});
-
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/display_client/index.html');
-});
-
+// Start the server.
 http.listen(PORT, HOST, function(){
   console.log('listening on '+HOST+':'+PORT);
 });

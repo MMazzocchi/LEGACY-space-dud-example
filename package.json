@@ -1,12 +1,11 @@
 {
-  "name": "controller",
-  "version": "0.0.1",
-  "description": "",
+  "name": "space-dud-example",
+  "version": "1.0.0",
+  "author": "Max Mazzocchi <maxwell.mazzocchi@gmail.com>",
+  "description": "Example setup for the space-dud package.",
+  "license": "GPL-3.0",
   "dependencies": {
-    "bootstrap": "^3.3.7",
     "express": "^4.15.3",
-    "space-dud": "^0.1.0",
-    "jquery": "^3.2.1",
-    "socket.io": "^2.0.3"
+    "space-dud": "^0.1.0"
   }
 }
