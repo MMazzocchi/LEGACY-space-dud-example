@@ -6,17 +6,14 @@
         <script src="/space-dud/ControllerConnection.js"></script>
         <script>
 
-var client = new ControllerConnection((player_id) => {
+var client = new ControllerConnection(function (player_id) {
   document.getElementById('player_id').innerHTML = player_id;
 });
 
-setTimeout(() => { client.findControllers(); }, 500);
-window.addEventListener('gamepadconnected', 
-                        (e) => { client.connectedHandler(e); });
-window.addEventListener('gamepaddisconnected',
-                        (e) => { client.disconnectedHandler(e); });
+setTimeout(client.findControllers, 500);
+window.addEventListener('gamepadconnected', client.connectedHandler);
+window.addEventListener('gamepaddisconnected', client.disconnectedHandler);
 
         </script>
     </body>
-</html>
 </html>

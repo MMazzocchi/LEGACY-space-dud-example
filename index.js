@@ -7,6 +7,15 @@ var app = express();
 var http = require('http').Server(app);
 var space_dud = require('space-dud')(http);
 
+// On every event, pass it on to any connected consumers
+var game = space_dud.getGame();
+game.onPlayerReady(function(player) {
+  player.onControllerEvent(player.sendEventToConsumers);
+});
+
+// Start the game server
+space_dud.start();
+
 // Serve the static client files.
 app.use('/controller.html', express.static(__dirname+'/controller.html'));
 app.use('/display.html', express.static(__dirname+'/display.html'));
