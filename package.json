@@ -6,6 +6,6 @@
   "license": "GPL-3.0",
   "dependencies": {
     "express": "^4.15.3",
-    "space-dud": "^1.0.2"
+    "space-dud": "^2.1.0"
   }
 }
