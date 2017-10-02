@@ -13,7 +13,7 @@
     <script>
 
 var client = new DisplayConnection();
-client.onEvent(function(data) {
+client.on('event', function(data) {
     document.getElementById('event').innerHTML = 
         "Received event: "+JSON.stringify(data);
 });
